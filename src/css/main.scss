@@ -445,7 +445,7 @@ section {
   cursor: pointer;
   transition: $transition;
   position: relative;
-  overflow: hidden;
+  padding-bottom: 50px;
 
   &:hover {
     transform: translateY(-5px);
@@ -488,9 +488,14 @@ section {
     opacity: 0;
     transition: $transition;
     position: absolute;
-    bottom: 20px;
+    bottom: 15px;
     left: 50%;
     transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 5px 12px;
+    border-radius: 15px;
+    white-space: nowrap;
+    z-index: 10;
   }
 
   &:hover .learn-more {
@@ -498,11 +503,6 @@ section {
   }
 }
 
-.portfolio-section {
-  background: $light-bg;
-  padding: 0;
-  margin: 0;
-}
 
 .full-carousel-container {
   position: relative;
@@ -682,22 +682,6 @@ section {
   @include flex-center;
 }
 
-.background-overlay {
-  background: rgba(0, 0, 0, 0.6);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  @include flex-center;
-  color: $white;
-  text-align: center;
-}
-
-.background-text {
-  font-size: 1.2rem;
-  margin-top: 20px;
-}
 
 .contact-section {
   background: $white;
@@ -744,9 +728,6 @@ section {
       color: $white;
     }
 
-    .booking-text {
-      color: $white;
-    }
   }
 
   .location-link {
@@ -791,9 +772,6 @@ section {
     transition: $transition;
   }
 
-  span {
-    display: none;
-  }
 
   &:hover {
     background: darken($primary-color, 10%);
@@ -844,16 +822,6 @@ section {
   animation: slideInUp 0.3s ease;
   pointer-events: auto;
 
-  .modal-icon {
-    text-align: center;
-    margin-bottom: 20px;
-
-    i {
-      font-size: 3rem;
-      color: $primary-color;
-      animation: pulse 2s infinite;
-    }
-  }
 
   h2 {
     margin-bottom: 20px;
@@ -929,17 +897,6 @@ section {
   }
 }
 
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
 
 @media (max-width: 1024px) {
   .hero-title {
