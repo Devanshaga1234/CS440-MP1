@@ -5,19 +5,12 @@ $dark-bg: #2c3e50;
 $white: #ffffff;
 $transition: all 0.3s ease;
 
-@mixin flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 @mixin container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
   width: 100%;
 }
-
 
 * {
   margin: 0;
@@ -71,7 +64,9 @@ body {
 }
 
 .nav-logo {
-  @include flex-center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 1.5rem;
   font-weight: bold;
   color: $primary-color;
@@ -138,7 +133,9 @@ body {
 
 .hero-section {
   min-height: 100vh;
-  @include flex-center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: $primary-color;
   color: $white;
   position: relative;
@@ -203,7 +200,9 @@ body {
   height: 100%;
   background: rgba(0, 0, 0, 0.4);
   z-index: 2;
-  @include flex-center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @keyframes fadeInUp {
@@ -253,7 +252,9 @@ section:not(.carousel-section) {
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  @include flex-center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: $white;
   text-align: center;
 
@@ -338,10 +339,14 @@ section:not(.carousel-section) {
 .services-section {
   background: $white;
   min-height: 100vh;
-  @include flex-center;
+  display: flex;
+  justify-content: center;
+  align-items: center;;
   
   .container {
-    @include flex-center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
     width: 100%;
   }
@@ -663,7 +668,9 @@ section:not(.carousel-section) {
   }
 
   .booking-link {
-    @include flex-center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-decoration: none;
     font-weight: 600;
     padding: clamp(12px, 2vw, 18px) clamp(20px, 3vw, 30px);
@@ -760,7 +767,9 @@ section:not(.carousel-section) {
 
   &.show {
     display: flex;
-    @include flex-center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 
