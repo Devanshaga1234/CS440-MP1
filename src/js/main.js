@@ -7,20 +7,9 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeNavigation();
     initializeCarousel();
     initializeModal();
-    // initializeScrollEffects();
-    // initializeSocialLinks();
     initializeFacilityCards();
     initializeMusicControl();
 });
-
-// function initializeSocialLinks() {
-//     const socialLinks = document.querySelectorAll('.social-link');
-//     socialLinks.forEach(link => {
-//         link.addEventListener('click', function(e) {
-//             console.log('Social link clicked:', this.href);
-//         });
-//     });
-// }
 
 function initializeFacilityCards() {
     const facilityCards = document.querySelectorAll('.service-card[data-modal]');
@@ -106,8 +95,6 @@ function initializeCarousel() {
     totalSlides = slides.length;
     carouselTrack = document.getElementById('carousel-track');
     
-    console.log(`Carousel initialized: ${totalSlides} slides found`);
-    
     if (slides.length === 0) return;
     
     updateCarousel();
@@ -118,8 +105,6 @@ function initializeCarousel() {
     setInterval(() => {
         changeSlide(1);
     }, 6000);
-    
-    // addTouchSupport();
 }
 
 function addCarouselEventListeners() {
@@ -150,8 +135,6 @@ function changeSlide(direction) {
         currentSlide = totalSlides - 1;
     }
     
-    console.log(`Carousel: ${previousSlide} → ${currentSlide} (direction: ${direction}, totalSlides: ${totalSlides})`);
-    
     updateCarousel();
     updateDots();
 }
@@ -167,7 +150,6 @@ function updateCarousel() {
     
     const translateX = -currentSlide * 100;
     carouselTrack.setAttribute('data-translate', translateX);
-    console.log(`UpdateCarousel: slide ${currentSlide}, translateX: ${translateX}%`);
     
     slides.forEach((slide, index) => {
         slide.classList.remove('active', 'prev-slide', 'next-slide');
@@ -196,68 +178,6 @@ function updateDots() {
         }
     });
 }
-
-// function addTouchSupport() {
-//     let startX = 0;
-//     let endX = 0;
-//     let isDragging = false;
-//     
-//     carouselTrack.addEventListener('touchstart', (e) => {
-//         startX = e.touches[0].clientX;
-//         isDragging = true;
-//     });
-//     
-//     carouselTrack.addEventListener('touchmove', (e) => {
-//         if (isDragging) {
-//             e.preventDefault();
-//         }
-//     });
-//     
-//     carouselTrack.addEventListener('touchend', (e) => {
-//         if (isDragging) {
-//             endX = e.changedTouches[0].clientX;
-//             handleSwipe();
-//             isDragging = false;
-//         }
-//     });
-//     
-//     carouselTrack.addEventListener('mousedown', (e) => {
-//         startX = e.clientX;
-//         isDragging = true;
-//         e.preventDefault();
-//     });
-//     
-//     carouselTrack.addEventListener('mousemove', (e) => {
-//         if (isDragging) {
-//             e.preventDefault();
-//         }
-//     });
-//     
-//     carouselTrack.addEventListener('mouseup', (e) => {
-//         if (isDragging) {
-//             endX = e.clientX;
-//             handleSwipe();
-//             isDragging = false;
-//         }
-//     });
-//     
-//     carouselTrack.addEventListener('mouseleave', () => {
-//         isDragging = false;
-//     });
-//     
-//     function handleSwipe() {
-//         const swipeThreshold = 50;
-//         const diff = startX - endX;
-//         
-//         if (Math.abs(diff) > swipeThreshold) {
-//             if (diff > 0) {
-//                 changeSlide(1);
-//             } else {
-//                 changeSlide(-1);
-//             }
-//         }
-//     }
-// }
 
 function initializeModal() {
     const closeBtns = document.querySelectorAll('.close');
@@ -303,28 +223,6 @@ function closeModal(modalId) {
         document.body.classList.remove('body-no-scroll');
     }
 }
-
-// function initializeScrollEffects() {
-//     const observerOptions = {
-//         threshold: 0.1,
-//         rootMargin: '0px 0px -50px 0px'
-//     };
-//     
-//     const observer = new IntersectionObserver(function(entries) {
-//         entries.forEach(entry => {
-//             if (entry.isIntersecting) {
-//                 entry.target.classList.remove('animate-out');
-//                 entry.target.classList.add('animate-in');
-//             }
-//         });
-//     }, observerOptions);
-//     
-//     const animatedElements = document.querySelectorAll('.service-card, .about-content, .contact-content');
-//     animatedElements.forEach(el => {
-//         el.classList.add('animate-out');
-//         observer.observe(el);
-//     });
-// }
 
 function debounce(func, wait) {
     let timeout;
